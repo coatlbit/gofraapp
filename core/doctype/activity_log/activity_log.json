@@ -1,0 +1,17 @@
+{
+  "name": "ActivityLog",
+  "module": "Core",
+  "fields": [
+    { "fieldname": "user", "fieldtype": "Link", "label": "User", "options": "User", "reqd": true },
+    { "fieldname": "operation", "fieldtype": "Data", "label": "Operation" },
+    { "fieldname": "subject", "fieldtype": "Data", "label": "Subject" },
+    { "fieldname": "status", "fieldtype": "Data", "label": "Status" },
+    { "fieldname": "reference_doctype", "fieldtype": "Data", "label": "Reference DocType" },
+    { "fieldname": "reference_name", "fieldtype": "Data", "label": "Reference Name" },
+    { "fieldname": "ip_address", "fieldtype": "Data", "label": "IP Address" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": false, "create": true, "delete": true },
+    { "role": "All", "read": false, "write": false, "create": false, "delete": false }
+  ]
+}

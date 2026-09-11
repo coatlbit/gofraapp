@@ -1,0 +1,10 @@
+{
+  "AppName": "gofraapp",
+  "PackageName": "gofraapp",
+  "AppTitle": "GoFra App",
+  "Title": "GoFra Core App",
+  "Publisher": "GoFra Team",
+  "Description": "Foundational core application providing authentication, system DocTypes, Desk UI, and RPC APIs",
+  "License": "MIT",
+  "Version": "0.16.0"
+}

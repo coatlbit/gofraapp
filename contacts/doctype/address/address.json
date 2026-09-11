@@ -1,0 +1,23 @@
+{
+  "name": "Address",
+  "module": "Contacts",
+  "fields": [
+    { "fieldname": "address_title", "fieldtype": "Data", "label": "Address Title", "reqd": true },
+    { "fieldname": "address_type", "fieldtype": "Select", "label": "Address Type", "options": "Postal\nBilling\nShipping\nOffice\nPersonal\nOther" },
+    { "fieldname": "address_line1", "fieldtype": "Data", "label": "Address Line 1", "reqd": true },
+    { "fieldname": "address_line2", "fieldtype": "Data", "label": "Address Line 2" },
+    { "fieldname": "city", "fieldtype": "Data", "label": "City", "reqd": true },
+    { "fieldname": "state", "fieldtype": "Data", "label": "State" },
+    { "fieldname": "country", "fieldtype": "Data", "label": "Country", "reqd": true },
+    { "fieldname": "pincode", "fieldtype": "Data", "label": "Postal Code" },
+    { "fieldname": "email_id", "fieldtype": "Data", "label": "Email Address" },
+    { "fieldname": "phone", "fieldtype": "Data", "label": "Phone" },
+    { "fieldname": "is_primary_address", "fieldtype": "Check", "label": "Preferred Billing Address" },
+    { "fieldname": "is_shipping_address", "fieldtype": "Check", "label": "Preferred Shipping Address" },
+    { "fieldname": "disabled", "fieldtype": "Check", "label": "Disabled" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": true, "create": true, "delete": false }
+  ]
+}

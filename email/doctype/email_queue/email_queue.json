@@ -1,0 +1,17 @@
+{
+  "name": "EmailQueue",
+  "module": "Email",
+  "fields": [
+    { "fieldname": "sender", "fieldtype": "Data", "label": "Sender", "reqd": true },
+    { "fieldname": "recipient", "fieldtype": "Data", "label": "Recipient", "reqd": true },
+    { "fieldname": "message", "fieldtype": "Text", "label": "Message Content" },
+    { "fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Not Sent\nSent\nError" },
+    { "fieldname": "error", "fieldtype": "Text", "label": "Error Trace" },
+    { "fieldname": "retry", "fieldtype": "Int", "label": "Retry Count" },
+    { "fieldname": "email_account", "fieldtype": "Link", "label": "Email Account", "options": "EmailAccount" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": false, "write": false, "create": false, "delete": false }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "EmailAccount",
+  "module": "Email",
+  "fields": [
+    { "fieldname": "email_id", "fieldtype": "Data", "label": "Email Address", "reqd": true },
+    { "fieldname": "email_account_name", "fieldtype": "Data", "label": "Email Account Name", "reqd": true },
+    { "fieldname": "service", "fieldtype": "Select", "label": "Service", "options": "GMail\nOutlook.com\nSendgrid\nCustom" },
+    { "fieldname": "smtp_server", "fieldtype": "Data", "label": "SMTP Server" },
+    { "fieldname": "smtp_port", "fieldtype": "Int", "label": "SMTP Port" },
+    { "fieldname": "use_tls", "fieldtype": "Check", "label": "Use TLS" },
+    { "fieldname": "use_ssl", "fieldtype": "Check", "label": "Use SSL" },
+    { "fieldname": "enable_incoming", "fieldtype": "Check", "label": "Enable Incoming" },
+    { "fieldname": "enable_outgoing", "fieldtype": "Check", "label": "Enable Outgoing" },
+    { "fieldname": "default_outgoing", "fieldtype": "Check", "label": "Default Outgoing" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": false, "write": false, "create": false, "delete": false }
+  ]
+}

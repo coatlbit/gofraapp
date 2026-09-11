@@ -1,0 +1,3 @@
+[post_model_sync]
+# GoFra initial schema synchronization and core seed data
+gofraapp.patches.v16_0.initialize_core_roles

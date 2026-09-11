@@ -1,0 +1,18 @@
+{
+  "name": "DocType",
+  "module": "Core",
+  "fields": [
+    { "fieldname": "name", "fieldtype": "Data", "label": "Name", "reqd": true },
+    { "fieldname": "module", "fieldtype": "Link", "label": "Module", "options": "ModuleDef", "reqd": true },
+    { "fieldname": "istable", "fieldtype": "Check", "label": "Is Child Table" },
+    { "fieldname": "issingle", "fieldtype": "Check", "label": "Is Single" },
+    { "fieldname": "is_submittable", "fieldtype": "Check", "label": "Is Submittable" },
+    { "fieldname": "fields", "fieldtype": "Table", "label": "Fields", "options": "DocField" },
+    { "fieldname": "permissions", "fieldtype": "Table", "label": "Permissions", "options": "DocPerm" },
+    { "fieldname": "description", "fieldtype": "Text", "label": "Description" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": false, "create": false, "delete": false }
+  ]
+}

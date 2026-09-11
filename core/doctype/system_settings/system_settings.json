@@ -1,0 +1,18 @@
+{
+  "name": "SystemSettings",
+  "module": "Core",
+  "is_single": true,
+  "fields": [
+    { "fieldname": "app_name", "fieldtype": "Data", "label": "App Name" },
+    { "fieldname": "language", "fieldtype": "Data", "label": "Language" },
+    { "fieldname": "time_zone", "fieldtype": "Data", "label": "Time Zone" },
+    { "fieldname": "date_format", "fieldtype": "Data", "label": "Date Format" },
+    { "fieldname": "time_format", "fieldtype": "Data", "label": "Time Format" },
+    { "fieldname": "session_expiry", "fieldtype": "Data", "label": "Session Expiry" },
+    { "fieldname": "enable_two_factor_auth", "fieldtype": "Check", "label": "Enable 2FA" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": false, "create": false, "delete": false }
+  ]
+}

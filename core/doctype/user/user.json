@@ -1,0 +1,20 @@
+{
+  "name": "User",
+  "module": "Core",
+  "fields": [
+    { "fieldname": "email", "fieldtype": "Data", "label": "Email", "reqd": true },
+    { "fieldname": "first_name", "fieldtype": "Data", "label": "First Name", "reqd": true },
+    { "fieldname": "last_name", "fieldtype": "Data", "label": "Last Name" },
+    { "fieldname": "full_name", "fieldtype": "Data", "label": "Full Name" },
+    { "fieldname": "username", "fieldtype": "Data", "label": "Username" },
+    { "fieldname": "password", "fieldtype": "Password", "label": "Password" },
+    { "fieldname": "enabled", "fieldtype": "Check", "label": "Enabled" },
+    { "fieldname": "user_type", "fieldtype": "Data", "label": "User Type" },
+    { "fieldname": "user_image", "fieldtype": "Attach Image", "label": "User Image" },
+    { "fieldname": "roles", "fieldtype": "Table", "label": "Roles", "options": "HasRole" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": false, "create": false, "delete": false }
+  ]
+}

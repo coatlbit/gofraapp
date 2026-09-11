@@ -1,0 +1,16 @@
+{
+  "name": "File",
+  "module": "Core",
+  "fields": [
+    { "fieldname": "file_name", "fieldtype": "Data", "label": "File Name", "reqd": true },
+    { "fieldname": "file_url", "fieldtype": "Data", "label": "File URL", "reqd": true },
+    { "fieldname": "file_size", "fieldtype": "Int", "label": "File Size" },
+    { "fieldname": "is_private", "fieldtype": "Check", "label": "Is Private" },
+    { "fieldname": "attached_to_doctype", "fieldtype": "Data", "label": "Attached To DocType" },
+    { "fieldname": "attached_to_name", "fieldtype": "Data", "label": "Attached To Name" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": true, "create": true, "delete": false }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Role",
+  "module": "Core",
+  "fields": [
+    { "fieldname": "role_name", "fieldtype": "Data", "label": "Role Name", "reqd": true },
+    { "fieldname": "disabled", "fieldtype": "Check", "label": "Disabled" },
+    { "fieldname": "desk_access", "fieldtype": "Check", "label": "Desk Access" },
+    { "fieldname": "is_custom", "fieldtype": "Check", "label": "Is Custom" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": false, "create": false, "delete": false }
+  ]
+}

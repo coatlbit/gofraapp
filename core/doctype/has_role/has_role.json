@@ -1,0 +1,8 @@
+{
+  "name": "HasRole",
+  "module": "Core",
+  "istable": true,
+  "fields": [
+    { "fieldname": "role", "fieldtype": "Link", "label": "Role", "options": "Role", "reqd": true }
+  ]
+}

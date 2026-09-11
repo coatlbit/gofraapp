@@ -1,0 +1,17 @@
+{
+  "name": "Contact",
+  "module": "Contacts",
+  "fields": [
+    { "fieldname": "first_name", "fieldtype": "Data", "label": "First Name", "reqd": true },
+    { "fieldname": "last_name", "fieldtype": "Data", "label": "Last Name" },
+    { "fieldname": "email_id", "fieldtype": "Data", "label": "Email Address" },
+    { "fieldname": "phone", "fieldtype": "Data", "label": "Phone Number" },
+    { "fieldname": "mobile_no", "fieldtype": "Data", "label": "Mobile Number" },
+    { "fieldname": "is_primary_contact", "fieldtype": "Check", "label": "Is Primary Contact" },
+    { "fieldname": "address", "fieldtype": "Link", "label": "Address", "options": "Address" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": true, "create": true, "delete": false }
+  ]
+}

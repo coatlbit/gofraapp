@@ -1,0 +1,14 @@
+{
+  "name": "ModuleDef",
+  "module": "Core",
+  "fields": [
+    { "fieldname": "module_name", "fieldtype": "Data", "label": "Module Name", "reqd": true },
+    { "fieldname": "app_name", "fieldtype": "Data", "label": "App Name", "reqd": true },
+    { "fieldname": "custom", "fieldtype": "Check", "label": "Custom" },
+    { "fieldname": "disabled", "fieldtype": "Check", "label": "Disabled" }
+  ],
+  "permissions": [
+    { "role": "System Manager", "read": true, "write": true, "create": true, "delete": true },
+    { "role": "All", "read": true, "write": false, "create": false, "delete": false }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "DocPerm",
+  "module": "Core",
+  "istable": true,
+  "fields": [
+    { "fieldname": "role", "fieldtype": "Link", "label": "Role", "options": "Role", "reqd": true },
+    { "fieldname": "read", "fieldtype": "Check", "label": "Read" },
+    { "fieldname": "write", "fieldtype": "Check", "label": "Write" },
+    { "fieldname": "create", "fieldtype": "Check", "label": "Create" },
+    { "fieldname": "delete", "fieldtype": "Check", "label": "Delete" },
+    { "fieldname": "submit", "fieldtype": "Check", "label": "Submit" },
+    { "fieldname": "cancel", "fieldtype": "Check", "label": "Cancel" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "DocField",
+  "module": "Core",
+  "istable": true,
+  "fields": [
+    { "fieldname": "fieldname", "fieldtype": "Data", "label": "Fieldname", "reqd": true },
+    { "fieldname": "fieldtype", "fieldtype": "Select", "label": "Fieldtype", "reqd": true },
+    { "fieldname": "label", "fieldtype": "Data", "label": "Label" },
+    { "fieldname": "reqd", "fieldtype": "Check", "label": "Required" },
+    { "fieldname": "options", "fieldtype": "Data", "label": "Options" },
+    { "fieldname": "default", "fieldtype": "Data", "label": "Default" },
+    { "fieldname": "description", "fieldtype": "Text", "label": "Description" },
+    { "fieldname": "hidden", "fieldtype": "Check", "label": "Hidden" },
+    { "fieldname": "read_only", "fieldtype": "Check", "label": "Read Only" }
+  ]
+}

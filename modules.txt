@@ -1,0 +1,11 @@
+Core
+Desk
+Custom
+Automation
+Workflow
+Integrations
+Email
+Printing
+Website
+Geo
+Contacts
