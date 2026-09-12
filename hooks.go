@@ -12,7 +12,7 @@ func init() {
 		Name:        "gofraapp",
 		Title:       "GoFra Core App",
 		Version:     "0.16.0",
-		Publisher:   "GoFra Team",
+		Publisher:   "Coatlbit",
 		Description: "Foundational core application providing authentication, system DocTypes, Desk UI, and RPC APIs",
 		License:     "MIT",
 

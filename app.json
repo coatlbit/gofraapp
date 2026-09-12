@@ -3,8 +3,10 @@
   "PackageName": "gofraapp",
   "AppTitle": "GoFra App",
   "Title": "GoFra Core App",
-  "Publisher": "GoFra Team",
-  "Description": "Foundational core application providing authentication, system DocTypes, Desk UI, and RPC APIs",
+  "Publisher": "Coatlbit",
+  "Email": "hola@coatlbit.org",
+  "Website": "https://coatlbit.org",
+  "Description": "Foundational core application providing authentication, system DocTypes, Desk UI, and RPC APIs for GoFra Framework",
   "License": "MIT",
   "Version": "0.16.0"
 }

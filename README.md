@@ -1,139 +1,177 @@
-<div align="center" markdown="1">
-	<img src=".github/framework-logo-new.svg" width="80" height="80"/>
-	<h1>Frappe Framework</h1>
+# GoFraApp (`gofraapp`)
 
- **Low Code Web Framework For Real World Applications, In Python And JavaScript**
+<div align="center">
+  <img src="public/images/frappe-framework-logo.svg" width="80" height="80" alt="GoFraApp Logo"/>
+  <h3>Foundational Core Application for GoFra Framework</h3>
+  <p><strong>Pure Go, High-Performance, Statically Typed Metadata Engine & Desk SPA</strong></p>
 </div>
 
 <div align="center">
-	<a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-success.svg"></a>
-	<a href="https://codecov.io/gh/frappe/frappe"><img src="https://codecov.io/gh/frappe/frappe/branch/develop/graph/badge.svg?token=XoTa679hIj"/></a>
-</div>
-<div align="center">
-	<img src=".github/hero-image.png" alt="Hero Image" />
-</div>
-<div align="center">
-    <a href="https://frappe.io/framework">Website</a>
-    -
-    <a href="https://docs.frappe.io/framework">Documentation</a>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Go Version](https://img.shields.io/badge/Go-1.22%2B-00ADD8?logo=go)](https://golang.org)
+[![Author](https://img.shields.io/badge/Author-Coatlbit-orange.svg)](https://coatlbit.org)
+[![Website](https://img.shields.io/badge/Website-coatlbit.org-green.svg)](https://coatlbit.org)
+
 </div>
 
-## Frappe Framework
-Full-stack web application framework that uses Python and MariaDB on the server side and a tightly integrated client side library. Built for ERPNext.
+---
 
-## Philosophy
+## 1. Overview
 
-> The best code is the one that is not written
+**GoFraApp (`gofraapp`)** is the foundational core application for the **GoFra Framework** ecosystem. It serves as the direct Go-native counterpart to the `frappe` core application in Frappe Framework v16, engineered to eliminate Python runtime bottlenecks, Redis process overhead, and dynamic duck-typing vulnerabilities.
 
-Started in 2005, Frappe Framework was inspired by the Semantic Web. The "big idea" behind semantic web was of a framework that not only described how information is shown (like headings, body etc), but also what it means, like name, address etc.
+GoFraApp provides:
+- **361 System & Domain DocTypes** across 11 modules with strongly typed Go models.
+- **Complete Desk SPA Frontend**: Precompiled production bundles (`dist/`), SVG icon symbol caches, and dynamic asset manifests.
+- **Frappe UI Component System**: Integrated Vue 3 component library (`ui/`) and composables.
+- **Statically Typed Hooks (`hooks.go`)**: Compile-time lifecycle events, DocEvents, and custom API method routing.
+- **Realtime Pub/Sub**: Native Go WebSockets and Socket.IO handler integration (`realtime/`).
 
-By creating a web framework that allowed for easy definition of metadata, it made building complex applications easy. Applications are usually designed around how users interact with a system, but not based on semantics of the underlying system. Applications built on semantics end up being much more consistent and extensible. 
+---
 
-The first application built on Framework was ERPNext, a beast with more than 700 object types. Framework is not for the light hearted - it is not the first thing you might want to learn if you are beginning to learn web programming, but if you are ready to do real work, then Framework is the right tool for the job.
+## 2. Module Hierarchy & Ported DocTypes
 
-### Key Features
+GoFraApp organizes the entire system into 11 specialized modules:
 
-- **Full-Stack Framework**: Frappe covers both front-end and back-end development, allowing developers to build complete applications using a single framework.
+| Module | Scope & Capabilities | Key Ported DocTypes |
+|---|---|---|
+| **Core** | Authentication, Users, Roles, Permissions, Security, Files | `User`, `Role`, `HasRole`, `DocType`, `DocField`, `DocPerm`, `File`, `ActivityLog`, `SystemSettings` |
+| **Desk** | Workspace layouts, Dashboards, Notification logs, Shortcuts | `Workspace`, `NotificationLog`, `Event`, `Dashboard`, `DashboardChart`, `NumberCard`, `RouteHistory` |
+| **Contacts** | Enterprise address book, Phone/Email indexing, Salutations | `Address`, `Contact`, `ContactEmail`, `ContactPhone`, `Gender`, `Salutation` |
+| **Email** | SMTP/IMAP configurations, Email Queue, Templates, Domains | `EmailAccount`, `EmailQueue`, `EmailQueueRecipient`, `EmailTemplate`, `EmailDomain` |
+| **Workflow** | Document approval states, transitions, actions, and tasks | `Workflow`, `WorkflowState`, `WorkflowAction`, `WorkflowTransition`, `WorkflowDocumentState` |
+| **Automation** | Scheduled actions, milestones, automated assignment rules | `AutoRepeat`, `Milestone`, `MilestoneTracker`, `AssignmentRule` |
+| **Integrations** | Webhooks, OAuth2 SSO, Social Login Providers, Push Notifications | `Webhook`, `OAuthClient`, `SocialLoginKey`, `TokenCache`, `PushNotificationSettings` |
+| **Custom** | Runtime custom fields, property setters, custom permissions | `CustomField`, `PropertySetter`, `CustomDocPerm`, `CustomizeDocType` |
+| **Geo** | Standard geographical entities, currencies, territorial trees | `Country`, `Currency`, `Territory` |
+| **Printing** | Letterheads, print formats, print styles, and page layouts | `PrintFormat`, `LetterHead`, `PrintSettings`, `PrintStyle`, `PrintHeading` |
+| **Website** | Web portal CMS, Web forms, Themes, Blogs, Privacy portals | `WebPage`, `WebForm`, `WebsiteSettings`, `PortalSettings`, `WebsiteTheme`, `WebsiteSidebar` |
 
-- **Built-in Admin Interface**: Provides a pre-built, customizable admin dashboard for managing application data, reducing development time and effort.
+---
 
-- **Role-Based Permissions**: Comprehensive user and role management system to control access and permissions within the application.
-
-- **REST API**: Automatically generated RESTful API for all models, enabling easy integration with other systems and services.
-
-- **Customizable Forms and Views**: Flexible form and view customization using server-side scripting and client-side JavaScript.
-
-- **Report Builder**: Powerful reporting tool that allows users to create custom reports without writing any code.
-
-<details>
-<summary>Screenshots</summary>
-
-![List View](.github/fw-list-view.png)
-![Form View](.github/fw-form-view.png)
-![Role Permission Manager](.github/fw-rpm.png)
-</details>
-
-## Production Setup
-
-### Managed Hosting
-
-You can try [Frappe Cloud](https://frappecloud.com), a simple, user-friendly and sophisticated [open-source](https://github.com/frappe/press) platform to host Frappe applications with peace of mind.
-
-It takes care of installation, setup, upgrades, monitoring, maintenance and support of your Frappe deployments. It is a fully featured developer platform with an ability to manage and control multiple Frappe deployments.
-
-<div>
-    <a href="https://frappecloud.com/" target="_blank">
-        <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://frappe.io/files/try-on-fc-white.png">
-            <img src="https://frappe.io/files/try-on-fc-black.png" alt="Try on Frappe Cloud" height="28" />
-        </picture>
-    </a>
-</div>
-
-### Self Hosting
-
-### Docker
-Prerequisites: docker, docker-compose, git. Refer [Docker Documentation](https://docs.docker.com) for more details on Docker setup.
-
-Run the following commands:
+## 3. Directory Layout
 
 ```
-git clone https://github.com/frappe/frappe_docker
-cd frappe_docker
-docker compose -f pwd.yml up -d
+apps/gofraapp/
+├── app.json                  # GoFra Application Manifest
+├── hooks.go                  # Statically typed GoFra hooks & API router
+├── modules.txt               # Module registry index (11 modules)
+├── patches.txt               # Migration patch index
+├── package.json              # Asset build toolchain (esbuild, PostCSS, Vue)
+├── core/                     # Core system & security DocTypes
+├── desk/                     # Desk UI Workspaces & Desktop pages
+├── contacts/                 # Address and Contact management
+├── email/                    # Email Account, Queue & SMTP
+├── workflow/                 # Workflow states & transitions
+├── automation/               # Automated triggers & background actions
+├── integrations/             # Webhooks, OAuth & Social Login
+├── custom/                   # Custom fields & Property setters
+├── geo/                      # Countries & Currencies
+├── printing/                 # Print formats & Letterheads
+├── website/                  # Web pages, Forms, Portal & Themes
+├── realtime/                 # Socket.IO & WebSocket event handlers
+├── ui/                       # Frappe UI Vue 3 component library
+├── public/                   # Frontend Desk assets, icons, and dist bundles
+│   ├── assets.json           # Dynamic asset manifest
+│   ├── dist/                 # Prebuilt CSS & JS production bundles
+│   ├── icons/                # SVG icon sets
+│   ├── js/                   # Desk runtime scripts
+│   └── scss/                 # SASS stylesheets
+├── templates/                # Web templates
+└── www/                      # Public portal routes
 ```
 
-After a couple of minutes, site should be accessible on your localhost port: 8080. Use below default login credentials to access the site.
-- Username: Administrator
-- Password: admin
+---
 
-See [Frappe Docker](https://github.com/frappe/frappe_docker?tab=readme-ov-file#to-run-on-arm64-architecture-follow-this-instructions) for ARM based docker setup.
+## 4. Statically Typed Hooks (`hooks.go`)
 
-## Development Setup
-### Manual Install
+GoFra replaces Python's string-based dictionaries with compiled type safety:
 
-The Easy Way: our install script for bench will install all dependencies (e.g. MariaDB). See https://github.com/frappe/bench for more details.
+```go
+package gofraapp
 
-New passwords will be created for the Frappe "Administrator" user, the MariaDB root user, and the frappe user (the script displays the passwords and saves them to ~/frappe_passwords.txt).
+import (
+	"log"
+	"github.com/gofiber/fiber/v2"
+	"gofra/core"
+)
 
-### Local
+func init() {
+	core.RegisterApp(&core.AppDefinition{
+		Name:        "gofraapp",
+		Title:       "GoFra Core App",
+		Version:     "0.16.0",
+		Publisher:   "Coatlbit",
+		Description: "Foundational core application providing authentication, system DocTypes, Desk UI, and RPC APIs",
+		License:     "MIT",
 
-To setup the repository locally follow the steps mentioned below:
+		BeforeInstall: func() error {
+			log.Println("[gofraapp] Initializing GoFra core setup...")
+			return nil
+		},
+		AfterInstall: func() error {
+			log.Println("[gofraapp] Successfully initialized GoFra core.")
+			return nil
+		},
+		BeforeMigrate: func() error {
+			log.Println("[gofraapp] Preparing schema migrations...")
+			return nil
+		},
+		AfterMigrate: func() error {
+			log.Println("[gofraapp] Core schema migrations completed.")
+			return nil
+		},
 
-1. Setup bench by following the [Installation Steps](https://docs.frappe.io/framework/user/en/installation) and start the server
-   ```
-   bench start
-   ```
+		DocEvents: map[string]map[string]core.DocHookFunc{
+			"*": {
+				"after_save": func(doc map[string]interface{}) error {
+					return nil
+				},
+			},
+		},
 
-2. In a separate terminal window, run the following commands:
-   ```
-   # Create a new site
-   bench new-site frappe.localhost
-   ```
+		RegisterRoutes: func(r fiber.Router) {
+			group := r.Group("/api/v1/method/gofraapp")
+			group.Get("/ping", func(c *fiber.Ctx) error {
+				return c.JSON(fiber.Map{"status": "ok", "app": "gofraapp", "version": "0.16.0"})
+			})
+			group.Get("/info", func(c *fiber.Ctx) error {
+				return c.JSON(fiber.Map{"app": "gofraapp", "author": "Coatlbit", "status": "active"})
+			})
+		},
+	})
+}
+```
 
-3. Open the URL `http://frappe.localhost:8000/app` in your browser, you should see the app running
+---
 
-## Learning and community
+## 5. Quickstart & Installation
 
-1. [Frappe School](https://frappe.school) - Learn Frappe Framework and ERPNext from the various courses by the maintainers or from the community.
-2. [Official documentation](https://docs.frappe.io/framework) - Extensive documentation for Frappe Framework.
-3. [Discussion Forum](https://discuss.frappe.io/) - Engage with community of Frappe Framework users and service providers.
-4. [buildwithhussain.com](https://buildwithhussain.com) - Watch Frappe Framework being used in the wild to build world-class web apps.
+To install `gofraapp` into a GoFra site workspace:
 
-## Contributing
+```bash
+# 1. Create a new site
+gofra-cli new-site site1.local --db-type sqlite --admin-password admin
 
-1. [Issue Guidelines](https://github.com/frappe/erpnext/wiki/Issue-Guidelines)
-1. [Report Security Vulnerabilities](https://frappe.io/security)
-1. [Pull Request Requirements](https://github.com/frappe/erpnext/wiki/Contribution-Guidelines)
-2. [Translations](https://crowdin.com/project/frappe)
+# 2. Install gofraapp
+gofra-cli install-app gofraapp --site site1.local
 
-<br>
-<br>
-<div align="center">
-	<a href="https://frappe.io" target="_blank">
-		<picture>
-			<source media="(prefers-color-scheme: dark)" srcset="https://frappe.io/files/Frappe-white.png">
-			<img src="https://frappe.io/files/Frappe-black.png" alt="Frappe Technologies" height="28"/>
-		</picture>
-	</a>
-</div>
+# 3. Synchronize all 361 schemas
+gofra-cli migrate --site site1.local
+
+# 4. Set as active site and launch server
+gofra-cli use site1.local
+gofra-cli serve --port 8080
+```
+
+Open `http://localhost:8080/desk` to log in and use GoFra Desk.
+
+---
+
+## 6. Author & Licensing
+
+- **Author**: **Coatlbit**
+- **Website**: [coatlbit.org](https://coatlbit.org)
+- **Contact Email**: [hola@coatlbit.org](mailto:hola@coatlbit.org)
+- **License**: [MIT License](LICENSE) &copy; 2026 Coatlbit.
