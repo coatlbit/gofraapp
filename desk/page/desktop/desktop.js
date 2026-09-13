@@ -1151,6 +1151,16 @@ class DesktopIcon {
 			}
 			if (this.icon_route) {
 				this.icon.attr("href", this.icon_route);
+				if (this.in_modal) {
+					this.icon.on("click", () => {
+						if (document.activeElement && typeof document.activeElement.blur === "function") {
+							document.activeElement.blur();
+						}
+						if (frappe.desktop_utils.modal) {
+							frappe.desktop_utils.modal.hide();
+						}
+					});
+				}
 			} else {
 				this.icon.on("click", function (event) {
 					frappe.msgprint(
@@ -1245,12 +1255,23 @@ class DesktopModal {
 			this.modal.find(".modal-dialog").attr("id", "desktop-modal");
 			this.modal.find(".modal-body").addClass("desktop-modal-body");
 			this.$child_icons_wrapper = this.modal.find(".desktop-modal-body");
+			this.modal.removeAttr("aria-hidden");
+			this.modal.on("show.bs.modal shown.bs.modal", () => {
+				this.modal.removeAttr("aria-hidden");
+			});
+			this.modal.on("hide.bs.modal", () => {
+				if (document.activeElement && typeof document.activeElement.blur === "function") {
+					document.activeElement.blur();
+				}
+				this.modal.removeAttr("aria-hidden");
+			});
 			this.modal.find(".desktop-modal-heading").on("click", (e) => {
 				if (!$(e.target).closest(".modal-title").length) {
 					this.hide();
 				}
 			});
 		} else {
+			this.modal.removeAttr("aria-hidden");
 			this.modal.find(".modal-title").text(icon_title);
 			$(this.modal.find(".modal-body")).empty();
 			if (frappe.desktop_utils.modal_stack.length == 1) {
@@ -1279,10 +1300,17 @@ class DesktopModal {
 			});
 	}
 	show() {
+		this.modal.removeAttr("aria-hidden");
 		this.modal.modal("show");
 	}
 	hide() {
-		this.modal.modal("hide");
+		if (document.activeElement && typeof document.activeElement.blur === "function") {
+			document.activeElement.blur();
+		}
+		if (this.modal) {
+			this.modal.removeAttr("aria-hidden");
+			this.modal.modal("hide");
+		}
 	}
 }
 
